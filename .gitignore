@@ -1,2 +1,4 @@
 /src/prose/migrations/
 /src/poetry/migrations/
+/site/public/media/
+/site/public/static/
