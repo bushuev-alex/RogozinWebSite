@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
+from .log_config import LOGGING
 from config import DJ_SECRET, DB_NAME, DB_LOGIN, DB_PASS, DB_HOST, DB_PORT
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,7 +47,10 @@ INSTALLED_APPS = [
     "django_filters",
     'django_summernote',
     "prose",
-    "poetry"
+    "poetry",
+    "fpages",
+    # "prose.apps.ProseConfig",
+    # "poetry.apps.PoetryConfig",
 ]
 
 SITE_ID = 1
@@ -59,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware"
 ]
 
 ROOT_URLCONF = "website.urls"
@@ -141,3 +146,5 @@ STATICFILES_DIRS = ["/home/alexander/PycharmProjects/RogozinWebSite/site/public/
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = LOGGING
