@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django_filters",
     'django_summernote',
     "prose",
+    "poetry"
 ]
 
 SITE_ID = 1
@@ -131,6 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+# STATIC_ROOT = "/home/alexander/PycharmProjects/RogozinWebSite/site/public/static"
+MEDIA_ROOT = "/home/alexander/PycharmProjects/RogozinWebSite/site/public/media"
+
+STATICFILES_DIRS = ["/home/alexander/PycharmProjects/RogozinWebSite/site/public/static/"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
