@@ -1,0 +1,44 @@
+{% extends 'prose.html' %}
+
+{% block prose_name %}
+<h1><a href="/prose/{{ model_name }}/1">{{ full_name }}
+    </a>
+</h1>
+{% endblock prose_name %}
+
+
+{% block content %}
+
+<h1>Глава {{ pk }}</h1>
+
+{% for line in page %}
+<p>{{ line }}</p>
+{% endfor %}
+
+<hr>
+<form action="jump_to_page/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Перейти" />
+</form>
+
+<hr>
+
+<table>
+    <tr>
+        <td>
+            <a class="page_next" href="next/">
+                <h2 class="post-title">Вперед</h2>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="page_previous" href="previous/">
+                <h2 class="post-title">Назад</h2>
+            </a>
+        </td>
+    </tr>
+</table>
+
+{% endblock content %}

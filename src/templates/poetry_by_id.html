@@ -1,0 +1,35 @@
+{% extends 'poetry.html' %}
+{% load custom_filters %}
+
+{% block content %}
+
+<h1> {{ stih.title }} </h1>
+
+{% for line in text %}
+<p>{{ line|remove_tires|safe }}</p>
+{% endfor %}
+
+<hr>
+    <a class="page_previous" href="/poetry/">
+        <h2 class="post-title">Назад к списку стихов</h2>
+    </a>
+<hr>
+
+<table>
+    <tr>
+        <td>
+            <a class="page_next" href="{{ pk }}/next/">
+                <h2 class="post-title">Вперед</h2>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="page_previous" href="{{ pk }}/previous/">
+                <h2 class="post-title">Назад</h2>
+            </a>
+        </td>
+    </tr>
+</table>
+
+{% endblock content %}
