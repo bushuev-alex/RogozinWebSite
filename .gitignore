@@ -2,3 +2,6 @@
 /src/poetry/migrations/
 /site/public/media/
 /site/public/static/
+/src/general.log
+/src/error.log
+/src/security.log
