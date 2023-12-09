@@ -40,7 +40,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "website",
+    "django.contrib.sites",
+    "django.contrib.flatpages",
+    "django.contrib.sitemaps",
+    "django_filters",
+    'django_summernote',
+    "prose",
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
