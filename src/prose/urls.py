@@ -2,8 +2,10 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 from django.contrib.sitemaps.views import sitemap
 
-from prose.views import ProseList, LivedDetail, lived_next_page, lived_previous_page, ThoughtsDetail, thoughts_next_page, thoughts_previous_page
-from prose.views import PagesDetail, pages_next_page, pages_previous_page, redirect_to_prose, get_about_info, main_page
+from prose.views import (Prose, LivedDetail, lived_next_page, lived_previous_page,
+                         ThoughtsDetail, thoughts_next_page, thoughts_previous_page)
+from prose.views import (PagesDetail, pages_next_page, pages_previous_page,
+                         redirect_to_prose, get_about_info, main_page)
 
 # from prose.sitemap import StaticViewSitemap, DynamicViewLived, DynamicViewThoughts, DynamicViewPages
 
@@ -19,7 +21,7 @@ urlpatterns = [
    path('', main_page, name='main'),  # cache_page(60*10)
    path("about/", get_about_info, name='about'),
 
-   path('prose/', ProseList.as_view(), name='prose'),  # cache_page(60*10)
+   path('prose/', Prose.as_view(), name='prose'),  # cache_page(60*10)
    path('prose/<int:pk>/', redirect_to_prose, name='to_prose'),
 
    path('prose/lived/<int:pk>/', LivedDetail.as_view(), name='lived'),
