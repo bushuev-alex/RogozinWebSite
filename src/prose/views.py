@@ -12,7 +12,7 @@ class ProseList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['first_page'] = self.model.objects.get(pk=1).text.split("\n")
+        # context['first_page'] = self.model.objects.get(pk=1).text.split("\n")
         return context
 
 
