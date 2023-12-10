@@ -7,14 +7,14 @@ from prose.views import (Prose, LivedDetail, lived_next_page, lived_previous_pag
 from prose.views import (PagesDetail, pages_next_page, pages_previous_page,
                          redirect_to_prose, get_about_info, main_page)
 
-# from prose.sitemap import StaticViewSitemap, DynamicViewLived, DynamicViewThoughts, DynamicViewPages
+from prose.sitemap import StaticViewSitemap, DynamicViewLived, DynamicViewThoughts, DynamicViewPages
 
-# sitemaps = {
-#    'static': StaticViewSitemap,
-#    'lived': DynamicViewLived,
-#    'thoughts': DynamicViewThoughts,
-#    'pages': DynamicViewPages
-# }
+sitemaps = {
+   'static': StaticViewSitemap,
+   'lived': DynamicViewLived,
+   'thoughts': DynamicViewThoughts,
+   'pages': DynamicViewPages
+}
 
 
 urlpatterns = [
@@ -39,5 +39,5 @@ urlpatterns = [
    path('prose/pages/<int:pk>/previous/', pages_previous_page, name='pages_previous'),
    path('prose/pages/<int:pk>/jump_to_page/', PagesDetail.as_view(), name='pages_jump_to_page'),
 
-   # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+   path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
 ]
