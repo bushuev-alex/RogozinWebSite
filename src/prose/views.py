@@ -48,8 +48,14 @@ class ThoughtsDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['page'] = self.model.objects.get(pk=self.kwargs["pk"]).text.split("\n")
         context['pk'] = self.kwargs["pk"]
-        context['pk_next'] = self.kwargs["pk"] + 1
-        context['pk_previous'] = self.kwargs["pk"] - 1
+        if context['pk'] == self.model.objects.latest('id').__dict__.get("id"):
+            context['pk_next'] = None
+        else:
+            context['pk_next'] = self.kwargs["pk"] + 1
+        if context['pk'] == 1:
+            context['pk_previous'] = None
+        else:
+            context['pk_previous'] = self.kwargs["pk"] - 1
         context['form'] = PageRequestForm
         context['model_name'] = "thoughts"
         context['full_name'] = "Думы о прожитом"
@@ -70,8 +76,14 @@ class PagesDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['page'] = self.model.objects.get(pk=self.kwargs["pk"]).text.split("\n")
         context['pk'] = self.kwargs["pk"]
-        context['pk_next'] = self.kwargs["pk"] + 1
-        context['pk_previous'] = self.kwargs["pk"] - 1
+        if context['pk'] == self.model.objects.latest('id').__dict__.get("id"):
+            context['pk_next'] = None
+        else:
+            context['pk_next'] = self.kwargs["pk"] + 1
+        if context['pk'] == 1:
+            context['pk_previous'] = None
+        else:
+            context['pk_previous'] = self.kwargs["pk"] - 1
         context['form'] = PageRequestForm
         context['model_name'] = "pages"
         context['full_name'] = "Странички истории"
