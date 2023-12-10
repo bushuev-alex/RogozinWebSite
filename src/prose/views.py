@@ -1,19 +1,13 @@
 from django.shortcuts import render, redirect
 from prose.models import ProjitoeNeUgasaet, ThoughtAboutLived, PagesOfHistory
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 # from prose.filters import ProseFilter
 from prose.forms import PageRequestForm
 
 
-class ProseList(ListView):
-    model = ProjitoeNeUgasaet
+class Prose(TemplateView):
     template_name = 'prose.html'
     context_object_name = 'prose'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # context['first_page'] = self.model.objects.get(pk=1).text.split("\n")
-        return context
 
 
 # LIVED
