@@ -121,4 +121,4 @@ def get_about_info(request):
 
 
 def main_page(request):
-    return render(request, 'flatpages/default.html')
+    return render(request, 'flatpages/main_page.html')
