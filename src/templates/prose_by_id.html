@@ -40,16 +40,20 @@
                 <table>
                 <tr>
                     <td>
-                        <a class="page_next" href="next/">
+                        {% if pk_next %}
+                        <a class="page_next" href="/prose/{{ model_name }}/{{ pk_next }}">
                             <h2 class="post-title">Вперед</h2>
                         </a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="page_previous" href="previous/">
+                        {% if pk_previous %}
+                        <a class="page_previous" href="/prose/{{ model_name }}/{{ pk_previous }}">
                             <h2 class="post-title">Назад</h2>
                         </a>
+                        {% endif %}
                     </td>
                 </tr>
                 </table>
