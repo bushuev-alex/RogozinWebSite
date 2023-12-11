@@ -22,7 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('', include('prose.urls')),
-    # path('', include('poetry.urls')),
+    path('', include('poetry.urls')),
     path('editor/', include('django_summernote.urls')),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain"))
 ]
