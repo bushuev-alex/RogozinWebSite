@@ -1,35 +1,45 @@
 {% extends 'poetry.html' %}
 {% load custom_filters %}
 
-{% block content %}
+{% block main_content %}
+<!-- Post Content-->
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h1> {{ stih.title }} </h1>
+                {% for line in text %}
+                <p>{{ line|remove_tires|safe }}</p>
+                {% endfor %}
 
-<h1> {{ stih.title }} </h1>
+                <hr>
+                    <a class="page_previous" href="/poetry/">
+                        <h2 class="post-title">Назад к списку стихов</h2>
+                    </a>
+                <hr>
 
-{% for line in text %}
-<p>{{ line|remove_tires|safe }}</p>
-{% endfor %}
-
-<hr>
-    <a class="page_previous" href="/poetry/">
-        <h2 class="post-title">Назад к списку стихов</h2>
-    </a>
-<hr>
-
-<table>
-    <tr>
-        <td>
-            <a class="page_next" href="{{ pk }}/next/">
-                <h2 class="post-title">Вперед</h2>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a class="page_previous" href="{{ pk }}/previous/">
-                <h2 class="post-title">Назад</h2>
-            </a>
-        </td>
-    </tr>
-</table>
-
-{% endblock content %}
+                <table>
+                    <tr>
+                        <td>
+                            {% if pk_next %}
+                            <a class="page_next" href="/poetry/{{ pk_next }}">
+                                <h2 class="post-title">Вперед</h2>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% if pk_previous %}
+                            <a class="page_previous" href="/poetry/{{ pk_previous }}">
+                                <h2 class="post-title">Назад</h2>
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>
+{% endblock main_content %}
