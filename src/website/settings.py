@@ -148,3 +148,11 @@ STATICFILES_DIRS = ["/home/alexander/PycharmProjects/RogozinWebSite/site/public/
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGGING = LOGGING
+
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache_files'),
+    }
+}

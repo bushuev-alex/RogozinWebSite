@@ -3,6 +3,7 @@ from prose.models import ProjitoeNeUgasaet, ThoughtAboutLived, PagesOfHistory
 from django.views.generic import DetailView, ListView, TemplateView
 # from prose.filters import ProseFilter
 from prose.forms import PageRequestForm
+from django.views.decorators.cache import cache_page
 
 
 class Prose(TemplateView):
@@ -98,9 +99,11 @@ def redirect_to_prose(request, **kwargs):
     return redirect(f"/prose/")
 
 
+@cache_page(60 * 60 * 24)
 def get_about_info(request):
     return render(request, 'flatpages/about.html')
 
 
+@cache_page(60 * 60 * 24)
 def main_page(request):
     return render(request, 'flatpages/main_page.html')
