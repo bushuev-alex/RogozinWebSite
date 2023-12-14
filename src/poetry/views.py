@@ -7,8 +7,10 @@ from poetry.filters import PoetryFilter
 class PoetryList(ListView):
     model = ChildPoetry  # Указываем модель, объекты которой мы будем выводить
     ordering = 'id'  # Поле, которое будет использоваться для сортировки объектов
-    template_name = 'poetry.html'  # Указываем имя шаблона, в котором будут все инструкции о том, # как именно пользователю должны быть показаны наши объекты
-    context_object_name = 'poetry'  # Это имя списка, в котором будут лежать все объекты. # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
+    template_name = 'poetry.html'
+    context_object_name = 'poetry'  # Это имя списка, в котором будут лежать все объекты.
+                                    # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
+    paginate_by = 15
 
 
 class PoetryDetail(DetailView):
